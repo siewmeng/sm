@@ -7,7 +7,7 @@ Let's consider the following string variable.
 var colour:String
 
 colour="Red"      // assigned Red
-colour="Blue"     // change to Blue
+colour="Green"    // change to Green
 colour="Yellow"   // change to Yellow
 
 ... and so on
@@ -36,7 +36,15 @@ var colour:MyColour
 
 colour=.Red
 ```
+Please note that there must be a dot before the identifier Red.
+```
+colour=Red      // incorrect
+colour="Red"    // incorrect
+colour=.Purple  // incorrect as Purple is not a member of MyColour
 
+colour=.Red         // correct
+colour=Mycolour.Red // correct
+```
 
 
 
