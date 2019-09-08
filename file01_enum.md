@@ -31,9 +31,10 @@ case "Yellow":
 default:
     print("\(colour) light, invalid signal.")
 }
-
-When executed, will print "Hello! light, invalid signal." which sound funny!!
-
+```
+When executed, will print the following which sound funny!
+```
+Hello! light, invalid signal.
 ```
 To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows Red, Green and Yellow.  
 
