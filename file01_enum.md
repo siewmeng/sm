@@ -47,7 +47,14 @@ colour=.Purple  // incorrect as Purple is not a member of MyColour
 colour=.Red         // correct
 colour=Mycolour.Red // correct
 ```
-
+By using the user-defined type MyColour, variable *colour* is now restricted to values of .Red, .Green and .Yellow. BUT, wait a minute, what we want is to restrict variable *colour* to have string of either "Red", "Green" or "Yellow". As such, we have to declare enum MyColour as String.
+```
+enum MyColour:String {
+    case Red
+    case Green
+    case Yellow
+}
+```
 
 
 
