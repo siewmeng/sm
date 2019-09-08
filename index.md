@@ -8,5 +8,5 @@ This is my swift-related notes taken during studying this programming language. 
   
   
   
-------------------------------------------------------  
+---
 **Side note:** *[Mastering markdown](https://guides.github.com/features/mastering-markdown/)*
