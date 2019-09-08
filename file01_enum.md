@@ -1,14 +1,15 @@
 **enum**  
 It stands for **enumeration**. It is a user-defined datatype that has a finite set of values.
 
-testing  
-testing  
-
-
+Let's consider the following string variable.  
 
 ```markdown
+var colour:String="Red"
 
+colour="Blue"
+colour="Yellow"
 
+... and so on
 ```
 
 
