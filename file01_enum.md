@@ -38,7 +38,7 @@ colour=.Red
 ```
 Please note that there must be a dot before the identifier Red.  
   
-Below are some of the "correct" and "incorrect" of assignment.
+Below are some of the "correct" and "incorrect" assignments.
 ```
 colour=Red      // incorrect
 colour="Red"    // incorrect
