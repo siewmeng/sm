@@ -1,4 +1,4 @@
-## My enum note
+**enum**
 enum stands for **enumeration**. It is a user-defined datatype that has a finite set of values.
 
 
