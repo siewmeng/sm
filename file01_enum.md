@@ -1,5 +1,4 @@
-**enum**
-enum stands for **enumeration**. It is a user-defined datatype that has a finite set of values.
+**enum** stands for **enumeration**. It is a user-defined datatype that has a finite set of values.
 
 
 ```markdown
