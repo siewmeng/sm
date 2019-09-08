@@ -10,8 +10,13 @@ colour="Blue"
 colour="Yellow"
 
 ... and so on
+```  
+We can even assign non-colour word to this variable, as long as the data type is a string.
 ```
-
+colour="hello!"
+```
+This is nothing wrong syntactically, however it does not sound so correct logically.  
+To avoid such situation, we restrict the values to a set of strings, e.g. only allows "Red", "Green" and "Yellow".  
 
 
 
