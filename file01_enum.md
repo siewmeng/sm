@@ -16,8 +16,26 @@ We can even assign non-colour word to this variable, as long as the data type is
 ```
 colour="hello!"
 ```
-This is nothing wrong syntactically, however it does not sound so correct logically.  
-To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows "Red", "Green" and "Yellow".  
+This is nothing wrong syntactically, however it does not sound so correct logically. Look at the example below.
+```
+var colour:String
+colour="Hello!"
+
+switch colour {
+case "Red":
+    print("\(colour) light, cars stop.")
+case "Green":
+    print("\(colour) light, cars move.")
+case "Yellow":
+    print("\(colour) light, cars stopping.")
+default:
+    print("\(colour) light, invalid signal.")
+}
+
+Will print "Hello! light, invalid signal." which sound funny!!
+
+```
+To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows Red, Green and Yellow.  
 
 First of all, we define a data type and let's call it MyColour. MyColour has 3 members; Red, Green and Yellow.  
 *Please note that they are just identifiers and no string data types.*
@@ -47,15 +65,9 @@ colour=.Purple  // incorrect as Purple is not a member of MyColour
 colour=.Red         // correct
 colour=Mycolour.Red // correct
 ```
-By using the user-defined type MyColour, variable *colour* is now restricted to values of .Red, .Green and .Yellow. BUT, wait a minute, what we want is to restrict variable *colour* to have string of either "Red", "Green" or "Yellow". As such, we have to declare enum MyColour as String.
-```
-enum MyColour:String {
-    case Red
-    case Green
-    case Yellow
-}
-```
-When strings are used for raw values, the implicit value for each case is the text of that case’s name.
+By using the user-defined type MyColour, variable *colour* is now restricted to values of .Red, .Green and .Yellow.  
+Please note that .Red, .Green and .Yellow are not strings.  
+  
 
 
 -------------------------------------------------------------------------
