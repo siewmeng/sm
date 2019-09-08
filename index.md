@@ -9,4 +9,4 @@ This is my swift-related notes taken during studying this programming language. 
   
   
   
-*[Mastering markdown](https://guides.github.com/features/mastering-markdown/)*
+**Side note:** *[Mastering markdown](https://guides.github.com/features/mastering-markdown/)*
