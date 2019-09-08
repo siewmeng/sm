@@ -55,7 +55,7 @@ enum MyColour:String {
     case Yellow
 }
 ```
-
+When strings are used for raw values, the implicit value for each case is the text of that case’s name.
 
 
 -------------------------------------------------------------------------
