@@ -36,10 +36,9 @@ When executed, will print the following which sound funny!
 ```
 Hello! light, invalid signal.
 ```
-To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows Red, Green and Yellow.  
+To avoid such situation from arising, we restrict colour to a set of values i.e. only allows Red, Green and Yellow.  
 
-First of all, we define a data type and let's call it MyColour. MyColour has 3 members; Red, Green and Yellow.  
-*Please note that they are just identifiers and no string data types.*
+First of all, we define a data type using keyword **enum** and let's call it MyColour. MyColour has 3 members; Red, Green and Yellow. *Please note that they are just identifiers and no string data types.*
 
 ```
 enum MyColour {
@@ -67,7 +66,8 @@ colour=.Red         // correct
 colour=Mycolour.Red // correct
 ```
 By using the user-defined type MyColour, variable *colour* is now restricted to values of .Red, .Green and .Yellow.  
-Please note that .Red, .Green and .Yellow are not strings.  
+Just a reminder, .Red, .Green and .Yellow are not strings. 
+
   
 
 
