@@ -32,7 +32,7 @@ default:
     print("\(colour) light, invalid signal.")
 }
 
-Will print "Hello! light, invalid signal." which sound funny!!
+When executed, will print "Hello! light, invalid signal." which sound funny!!
 
 ```
 To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows Red, Green and Yellow.  
