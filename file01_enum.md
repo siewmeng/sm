@@ -4,10 +4,11 @@ It stands for **enumeration**. It is a user-defined datatype that has a finite s
 Let's consider the following string variable.  
 
 ```markdown
-var colour:String="Red"
+var colour:String
 
-colour="Blue"
-colour="Yellow"
+colour="Red"      // assigned Red
+colour="Blue"     // change to Blue
+colour="Yellow"   // change to Yellow
 
 ... and so on
 ```  
@@ -16,9 +17,25 @@ We can even assign non-colour word to this variable, as long as the data type is
 colour="hello!"
 ```
 This is nothing wrong syntactically, however it does not sound so correct logically.  
-To avoid such situation, we restrict the values to a set of strings, e.g. only allows "Red", "Green" and "Yellow".  
+To avoid such situation from arising, we restrict the values to a set of strings, e.g. only allows "Red", "Green" and "Yellow".  
 
+First of all, we define a data type and let's call it MyColour. MyColour has 3 members; Red, Green and Yellow.  
+*Please note that they are just identifiers and no string data types.*
 
+```
+enum MyColour {
+    case Red
+    case Green
+    case Yellow
+}
+```
+
+Now, declare variable colour as MyColour data type, and assign it a pre-defined value.
+```
+var colour:MyColour
+
+colour=.Red
+```
 
 
 
