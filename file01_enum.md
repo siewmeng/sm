@@ -1,3 +1,1 @@
-#Header
-
 ## Header 2
