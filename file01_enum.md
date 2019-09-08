@@ -36,7 +36,9 @@ var colour:MyColour
 
 colour=.Red
 ```
-Please note that there must be a dot before the identifier Red.
+Please note that there must be a dot before the identifier Red.  
+  
+Below are some of the "correct" and "incorrect" of assignment.
 ```
 colour=Red      // incorrect
 colour="Red"    // incorrect
