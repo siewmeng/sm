@@ -65,8 +65,35 @@ colour=.Purple  // incorrect as Purple is not a member of MyColour
 colour=.Red         // correct
 colour=Mycolour.Red // correct
 ```
-By using the user-defined type MyColour, variable *colour* is now restricted to values of .Red, .Green and .Yellow.  
-Just a reminder, .Red, .Green and .Yellow are not strings. 
+By declaring variable *colour* as the user-defined type MyColour, its values are now restricted to .Red, .Green and .Yellow. Just a reminder, .Red, .Green and .Yellow are not strings. They are identifiers defined within MyColour.
+  
+Now, re-write the above example as:
+```
+enum MyColour {
+    case Red
+    case Green
+    case Yellow
+}
+var colour:MyColour
+
+colour = .Red
+
+switch colour {
+case .Red:
+    print("\(colour) light, cars stop.")
+case .Green:
+    print("\(colour) light, cars move.")
+case .Yellow:
+    print("\(colour) light, cars stopping.")
+}
+```
+Please note that the *default:* case in the above *switch* can be removed as all cases have been covered.  
+Since no other values besides .Red, .Green and .Yellow are allowed, one of the three printed outputs is expected.  
+
+When executed, it will print
+```
+Red light, cars stop.
+```
 
   
 
