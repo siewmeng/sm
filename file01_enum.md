@@ -1,7 +1,15 @@
 **enum**  
-It stands for **enumeration**. It is a user-defined datatype that has a finite set of values.
-
-Let's consider the following string variable.  
+It stands for **enumeration**. It is a user-defined datatype that has a finite set of values.  
+  
+The syntax for enumeration is
+```
+enum <enum name> {
+    case <identifier1>
+    case <identifier2>
+    ...
+}
+```
+For a start, let's consider the following string variable.  
 
 ```markdown
 var colour:String
@@ -38,7 +46,7 @@ Hello! light, invalid signal.
 ```
 To avoid such situation from arising, we restrict colour to a set of values i.e. only allows Red, Green and Yellow.  
 
-First of all, we define a data type using keyword **enum** and let's call it MyColour. MyColour has 3 members; Red, Green and Yellow. *Please note that they are just identifiers and no string data types.*
+First of all, we define a data type using keyword **enum** and give this data type a name called MyColour (also known as *enum name*). This data type has 3 members(or known as *identifiers*); Red, Green and Yellow.
 
 ```
 enum MyColour {
