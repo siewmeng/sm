@@ -46,9 +46,13 @@ modelNew="Accorda"
 colourNew="Black"
 valueNew=24000
 ```
-When executed, will print the following which sound funny!
+If I have 10 cars, there will be 30 variables/constants in this program. To solve this problem, the 3 characteristics can be grouped into a user-defined type using **struct**.
 ```
-Hello! light, invalid signal.
+struct Car {
+    let model:String
+    var colour:String
+    var value:Int
+}
 ```
 To avoid such situation from arising, we restrict colour to a set of values i.e. only allows Red, Green and Yellow.  
 
