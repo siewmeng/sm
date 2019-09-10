@@ -94,7 +94,8 @@ When executed, it will print
 ```
 Red light, cars stop.
 ```
-
+  
+  
   
 [Home](https://siewmeng.github.io/swift/)
 
