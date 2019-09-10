@@ -97,7 +97,7 @@ Red light, cars stop.
   
   
   
-[Home](https://siewmeng.github.io/swift/)
+[End. Go back to homepage.](https://siewmeng.github.io/swift/)
 
 -------------------------------------------------------------------------
 
