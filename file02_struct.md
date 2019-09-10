@@ -54,16 +54,18 @@ struct Car {
     var value:Int
 }
 ```
-To avoid such situation from arising, we restrict colour to a set of values i.e. only allows Red, Green and Yellow.  
-
-First of all, we define a data type using keyword **enum** and give this data type a name called MyColour (also known as *enum name*). This data type has 3 members(or known as *identifiers*); Red, Green and Yellow.
-
+Now, **Car** is a user-defined type, which consists of 3 characteristics (or attributes). I can now using this **Car** type to represent my cars.
 ```
-enum MyColour {
-    case Red
-    case Green
-    case Yellow
+struct Car {
+    let model:String
+    var colour:String
+    var value:Int
 }
+
+let myCar1=Car(model="Sprina", colour="Red", value=12000)
+let myCar2=Car(model="Accorda", colour="Black", value=24000)
+let myCar3=Car(model="Lanice", colour="White", value=30000)
+...
 ```
 
 Now, declare variable colour as MyColour data type, and assign it a pre-defined value.
