@@ -1,7 +1,7 @@
 **struct**  
 It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
   
-The syntax for enumeration is
+The syntax for structure is
 ```
 struct <struct name> {
     declare variable or constant
@@ -62,58 +62,44 @@ struct Car {
     var value:Int
 }
 
-let myCar1=Car(model="Sprina", colour="Red", value=12000)
-let myCar2=Car(model="Accorda", colour="Black", value=24000)
-let myCar3=Car(model="Lanice", colour="White", value=30000)
+let myCar1=Car(model:"Sprina", colour:"Red", value:12000)
+let myCar2=Car(model:"Accorda", colour:"Black", value:24000)
+let myCar3=Car(model:"Lanice", colour:"White", value:30000)
 ...
 ```
-
-Now, declare variable colour as MyColour data type, and assign it a pre-defined value.
+To access the attributes of myCar1, for example, can be done by
 ```
-var colour:MyColour
-
-colour=.Red
-```
-Please note that there must be a dot before the identifier Red.  
-  
-Below are some of the "correct" and "incorrect" assignments.
-```
-colour=Red      // incorrect
-colour="Red"    // incorrect
-colour=.Purple  // incorrect as Purple is not a member of MyColour
-
-colour=.Red         // correct
-colour=Mycolour.Red // correct
-```
-By declaring variable *colour* as the user-defined type MyColour, its values are now restricted to .Red, .Green and .Yellow. Just a reminder, .Red, .Green and .Yellow are not strings. They are identifiers defined within MyColour.
-  
-Now, re-write the above example as:
-```
-enum MyColour {
-    case Red
-    case Green
-    case Yellow
+struct Car {
+    let model:String
+    var colour:String
+    var value:Int
 }
-var colour:MyColour
 
-colour = .Red
+let myCar1=Car(model:"Sprina", colour:"Red", value:12000)
+let myCar2=Car(model:"Accorda", colour:"Black", value:24000)
+let myCar3=Car(model:"Lanice", colour:"White", value:30000)
 
-switch colour {
-case .Red:
-    print("\(colour) light, cars stop.")
-case .Green:
-    print("\(colour) light, cars move.")
-case .Yellow:
-    print("\(colour) light, cars stopping.")
-}
+print(myCar1.model)
+print(myCar1.colour)
+print(myCar1.value)
 ```
-Please note that the *default:* case in the above *switch* can be removed as all cases have been covered.  
-Since no other values besides .Red, .Green and .Yellow are allowed, one of the three printed outputs is expected.  
+The output is as follows
+```
+Sprina
+Red
+12000
+```
+Since myCar1 is a constant (as declared using *let*), values of its members cannot be changed although the members are variables. For example, wish to change myCar1.value from 12000 to 15600 will cause an error.
+```
+myCar1.value=15600 // error: Cannot assign to property: 'myCar1' is a 'let' constant
+```
+Unless change myCar1 to variable, i.e.
+```
+var myCar1=Car(model:"Sprina", colour:"Red", value:12000)
 
-When executed, it will print
+myCar1.value=15600 // valid
 ```
-Red light, cars stop.
-```
+
   
   
   
