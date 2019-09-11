@@ -83,7 +83,7 @@ print(myCar1.model)
 print(myCar1.colour)
 print(myCar1.value)
 ```
-The output is as follows
+The output will be as follows
 ```
 Sprina
 Red
