@@ -5,7 +5,7 @@ To implement **do-try-catch**, there are 3 portions in the program must be in pl
 3. *Main code that uses this function must be able to receive these errors when occurs*.  
   
 **Step 1. Define errors**  
-Using enum to define different error messages, and declare this enum as **Error** type.
+Using enum to define different error messages, and declare this enum as **Error** type (which is a must!).
 ```
 enum mySystemErrors:Error {
     case lowVoltage
@@ -15,7 +15,21 @@ enum mySystemErrors:Error {
 }
 ```
 **Step 2. Function**  
-
+Assuming we create a function to test a electronic system. This function will read sensors input to determine if the system is health or raise an error if the sensor reading does not meet the specification.
+```
+func testSystem() throws {
+    // Run codes that test the system.
+    // When test is completed, read the
+    // voltage and speed sensors to check
+    // if readings are within specifications,
+    // and update the error variable with status code.
+ 
+    if voltageSensorInput < 1 { throw mySystemErrors.lowVoltage }
+    else if voltageSensorInput > 10 { throw mySystemErrors.highVoltage }
+    else if speedSensorInput > 200 { throw mySystemErrors.overSpeed }
+    else if speedSensorInput < 100 { throw mySystemErrors.underSpeed }
+}
+```
 
 **Step 3. Main code**  
 
