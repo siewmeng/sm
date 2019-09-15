@@ -3,6 +3,22 @@ To implement **do-try-catch**, there are 3 portions in the program must be in pl
 1. *Define errors*.  
 2. *A function that is able to produce these errors*.  
 3. *Main code that uses this function must be able to receive these errors when occurs*.  
+  
+**Step 1. Define errors**  
+Using enum to define different error messages, and declare this enum as **Error** type.
+```
+enum mySystemErrors:Error {
+    case lowVoltage
+    case highVoltage
+    case systemNoResponse
+    case systemHalt
+}
+```
+**Step 2. Function**  
+
+
+**Step 3. Main code**  
+
 
 It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
   
