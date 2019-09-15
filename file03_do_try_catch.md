@@ -104,11 +104,34 @@ catch mySystemErrors.underSpeed {print("Under Speed")}
 *Over Speed* will be printed in this case.
 
 ## What is try?
+**try?** will turn the result into **nil** if there is an error thrown out from the function. That is to say, even there is an error, it will be not seen by the catch. As a result, statements in **catch** can never be executed and hence serve no purpose.
+```
+do{
+    try? testSystem()
+    print("Test completed without errors!")
+}
+catch mySystemErrors.lowVoltage {print("Voltage Low") }
+catch mySystemErrors.highVoltage {print("Voltage High")}
+catch mySystemErrors.overSpeed {print("Over Speed")}
+catch mySystemErrors.underSpeed {print("Under Speed")}
+```
+*Test completed without errors!* will be printed although there is an *Over Speed* error.
 
 
 ## What is try!
+**try!** will force unwrap the result. If there is an error thrown out by the function, using try! will be like force-unwrap a nil value, and causes execution interruption (i.e. program crash). If there is no error thrown out by the function, program will be executed normally. Hence, one must be very sure that there will be no error thrown by the function before using **try!**. Again, statements in **catch** can never be executed and hence serve no purpose.
+```
+do{
+    try! testSystem()
+    print("Test completed without errors!")
+}
+catch mySystemErrors.lowVoltage {print("Voltage Low") }
+catch mySystemErrors.highVoltage {print("Voltage High")}
+catch mySystemErrors.overSpeed {print("Over Speed")}
+catch mySystemErrors.underSpeed {print("Under Speed")}
+```
+Program will crash in this case. Because the overSpeed error will turn the testSystem() into a nil. Force-unwrap a nil by **try!** will cause program crash.
 
-  
   
   
 [End. Go back to homepage.](https://siewmeng.github.io/swift/)
