@@ -1,4 +1,4 @@
-**struct**  
+## struct
 It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
   
 The syntax for structure is
