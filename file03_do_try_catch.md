@@ -6,14 +6,14 @@ To implement **do-try-catch**, there are 3 portions in the program must be in pl
   
 **Step 1. Define errors**  
 Using enum to define different error messages, and declare this enum as **Error** type (which is a must!).
-
-enum mySystemErrors:**Error** {
+```
+enum mySystemErrors:Error {
     case lowVoltage
     case highVoltage
     case systemNoResponse
     case systemHalt
 }
-
+```
 **Step 2. Function**  
 Assuming we create a function to test a electronic system. This function will read sensors input to determine if the system is health or raise an error if the sensor reading does not meet the specification.
 ```
