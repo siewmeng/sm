@@ -89,110 +89,24 @@ When the above is executed, the printed result will be
 Got error!
 ```
 because the speedSensorInput reads 250 which is greater than 200. This causes error **mySystemErrors.overSpeed** to be thrown out from the testSystem() function, and caught by the **catch** which in turn prints the "Got error!" message.
-
-
-
-
-It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
   
-The syntax for structure is
+catch can be responding to specific error caught;
 ```
-struct <struct name> {
-    declare variable or constant
-    declare variable or constant
-    ...
+do{
+    try testSystem()
+    print("Test completed without errors!")
 }
+catch mySystemErrors.lowVoltage {print("Voltage Low") }
+catch mySystemErrors.highVoltage {print("Voltage High")}
+catch mySystemErrors.overSpeed {print("Over Speed")}
+catch mySystemErrors.underSpeed {print("Under Speed")}
 ```
-For a start, let's use car as an example. A car can have such characteristics as model, colour and value. These characteristics can be represented by variables or constants.
-```
-let model:String
-var colour:String
-var value:Int
-```
-To represent my car using these variables and constant, we assign values to them.
-```
-let model:String
-var colour:String
-var value:Int
+*Over Speed* will be printed in this case.
 
-// Characteristics of my car
-model="Sprina"
-colour="Red"
-value=12000
-```
-If I buy another new car, it can be represented by another set of variables and constant as
-```
-let model:String
-var colour:String
-var value:Int
+## What is try?
 
-let modelNew:String
-var colourNew:String
-var valueNew:Int
 
-// Characteristics of my car
-model="Sprina"
-colour="Red"
-value=12000
-
-// Characteristics of my new car
-modelNew="Accorda"
-colourNew="Black"
-valueNew=24000
-```
-If I have 10 cars, there will be 30 variables/constants in this program. To solve this problem, the 3 characteristics can be grouped into a user-defined type using **struct**.
-```
-struct Car {
-    let model:String
-    var colour:String
-    var value:Int
-}
-```
-Now, **Car** is a user-defined type, which consists of 3 characteristics (or attributes). I can now using this **Car** type to represent my cars.
-```
-struct Car {
-    let model:String
-    var colour:String
-    var value:Int
-}
-
-let myCar1=Car(model:"Sprina", colour:"Red", value:12000)
-let myCar2=Car(model:"Accorda", colour:"Black", value:24000)
-let myCar3=Car(model:"Lanice", colour:"White", value:30000)
-...
-```
-To access the attributes of myCar1, for example, can be done by
-```
-struct Car {
-    let model:String
-    var colour:String
-    var value:Int
-}
-
-let myCar1=Car(model:"Sprina", colour:"Red", value:12000)
-let myCar2=Car(model:"Accorda", colour:"Black", value:24000)
-let myCar3=Car(model:"Lanice", colour:"White", value:30000)
-
-print(myCar1.model)
-print(myCar1.colour)
-print(myCar1.value)
-```
-The output will be as follows
-```
-Sprina
-Red
-12000
-```
-Since myCar1 is a constant (as declared using *let*), values of its members cannot be changed although the members are variables. For example, wish to change myCar1.value from 12000 to 15600 will cause an error.
-```
-myCar1.value=15600 // error: Cannot assign to property: 'myCar1' is a 'let' constant
-```
-Unless change myCar1 to variable, i.e.
-```
-var myCar1=Car(model:"Sprina", colour:"Red", value:12000)
-
-myCar1.value=15600 // valid
-```
+## What is try!
 
   
   
