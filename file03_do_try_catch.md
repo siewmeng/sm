@@ -1,4 +1,9 @@
 **do try catch**  
+To implement **do-try-catch**, there are 3 portions in the program must be in place;  
+1. *Define errors*.  
+2. *A function that is able to produce these errors*.  
+3. *Main code that uses this function must be able to receive these errors when occurs*.  
+
 It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
   
 The syntax for structure is
