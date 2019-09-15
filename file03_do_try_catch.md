@@ -1,4 +1,4 @@
-**do try catch**  
+## do try catch
 To implement **do-try-catch**, there are 3 portions in the program must be in place;  
 1. *Define errors*.  
 2. *A function that is able to produce these errors*.  
