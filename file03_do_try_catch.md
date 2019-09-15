@@ -15,7 +15,9 @@ enum mySystemErrors:Error {
 }
 ```
 **Step 2. Function**  
-Assuming we create a function to test a electronic system. This function will read sensors input to determine if the system is health or raise an error if the sensor reading does not meet the specification.
+Assuming we create a function to test a electronic system. At the end of the test, this function will read sensor input to determine if the system is healthy, otherwise, raise an error if the sensor reading does not meet the specification.  
+  
+The function raises errors by **throw**ing the errors defined in enum. The keyword **throws** must be used after the function name to indicate this function will throw out errors.
 ```
 func testSystem() throws {
     // Run codes that test the system.
@@ -30,8 +32,61 @@ func testSystem() throws {
     else if speedSensorInput < 100 { throw mySystemErrors.underSpeed }
 }
 ```
-
 **Step 3. Main code**  
+In the main program, function testSystem() is called. Since this function throws error, it must be preceeded by the keyword **try**.
+```
+try testSystem()
+```
+In order to catch error thrown out by testSystem(), the **try testSystem()** needs to be placed within the do-catch statement. The function will be executed within **do**, and statement in **catch** will be executed whenever there is error caught.
+```
+do{
+    try testSystem()
+    print("Test completed without errors!")
+}
+catch{
+    print("Got error!")
+}
+```
+The complete program that uses do-try-catch is shown as follows.
+```
+// Assuming these are the sensor input
+var voltageSensorInput = 5 // volt sensor reads 5V
+var speedSensorInput = 250 // speed sensor reads 300rpm
+
+// Step 1
+enum mySystemErrors:Error {
+    case lowVoltage
+    case highVoltage
+    case overSpeed
+    case underSpeed
+}
+
+// Step 2
+func testSystem() throws {
+    // Run codes that test the system.
+    // When test is completed, read the
+    // voltage and speed sensors to check
+    // if readings are within specifications,
+    // and update the error variable with status code.
+ 
+    if voltageSensorInput < 1 { throw mySystemErrors.lowVoltage }
+    else if voltageSensorInput > 10 { throw mySystemErrors.highVoltage }
+    else if speedSensorInput > 200 { throw mySystemErrors.overSpeed }
+    else if speedSensorInput < 100 { throw mySystemErrors.underSpeed }
+}
+
+// Step 3
+do{
+    try testSystem()
+    print("Test completed without errors!")
+}
+catch{
+    print("Got error!")
+}
+```
+
+
+
 
 
 It stands for **structure**. It is a user-defined datatype that consists of a set of variables and/or constants.  
