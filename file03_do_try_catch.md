@@ -84,7 +84,11 @@ catch{
     print("Got error!")
 }
 ```
-
+When the above is executed, the printed result will be
+```
+Got error!
+```
+because the speedSensorInput reads 250 which is greater than 200. This causes error **mySystemErrors.overSpeed** to be thrown out from the testSystem() function, and caught by the **catch** which in turn prints the "Got error!" message.
 
 
 
