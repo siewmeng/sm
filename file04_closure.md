@@ -22,19 +22,47 @@ func printValue(x:Int) {
 }
 ```
 ---
-**Step 2.** Next, let us create another function. This function will take in one integer and one function, and return an integer value. Yes, we are going to pass a function into this function. The function that is being passed is called **closure**.
+**Step 2.** Next, let us create another function. This function will take in one integer and one function, and return an integer value. Yes, we are going to pass a function into this function. The function that is being passed into is called **closure**.
 ```
-func procesValue(input:Int, _closure:(x:Int)->Int) -> Int {
+func processValue(input:Int, _closure:(_ x:Int)->Int) -> Int {
   var y=input+3
   var z=_closure(y) // << using the given function to manipulate y
   return z
-
 }
 ```
 At this point of time, we only define the function **_closure** as type **(x:Int)->Int**. We do not know how **_closure** is going to manipulate **x**.
   
 ---
 **Step 3.** Now we are going to create a function that complies to the _closure type **(x:Int)->Int**. The function created in **Step 1** fits this requirement.
+```
+func processValue(input:Int, _closure:(_ x:Int)->Int) -> Int {
+  var y=input+3
+  var z=_closure(y) // << using the given function to manipulate y
+  return z
+}
+
+func manipulateValue(x:Int) -> Int {
+  return x*2+3
+}
+```
+
+---
+**Step 4.** Now, we are going to use function processValue in our program.
+```
+func processValue(input:Int, _closure:(_ x:Int)->Int) -> Int {
+  var y=input+3
+  var z=_closure(y) // << using the given function to manipulate y
+  return z
+}
+
+func manipulateValue(x:Int) -> Int {
+  return x*2+3
+}
+
+var result:Int = processValue(input:3, _closure:manipulateValue)
+print("The result is \(result)") // 15 will be printed
+...
+```
 
 
 
