@@ -60,10 +60,11 @@ func manipulateValue(x:Int) -> Int {
 }
 
 var result:Int = processValue(input:3, _closure:manipulateValue)
+
 print("The result is \(result)") // 15 will be printed
 ...
 ```
-
+As can be seen from the above example, user passes an integer 3 and a function *manipulateValue* to the *processValue* function.
 
 
 
