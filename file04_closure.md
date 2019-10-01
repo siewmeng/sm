@@ -64,7 +64,11 @@ var result:Int = processValue(input:3, _closure:manipulateValue)
 print("The result is \(result)") // 15 will be printed
 ...
 ```
-As can be seen from the above example, user passes an integer 3 and a function *manipulateValue* to the *processValue* function.
+As can be seen from the above example, user passes an integer 3 and a function *manipulateValue* to the *processValue* function. Function *manipulateValue* will be used by function *processValue* for manipulating data. By looking at the *var result* statement, one cannot tell how does function *manipulateValue* works unless searching for its definition.  
+
+There is a way to define the body of function *manipulateValue* within function *processValue*.  
+
+
 
 
 
