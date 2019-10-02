@@ -68,6 +68,40 @@ As can be seen from the above example, user passes an integer 3 and a function *
 
 There is a way to define the body of function *manipulateValue* within function *processValue*.  
 
+Let us go through the steps of function merging *"evolution"*. The steps are for illustration purpose and the syntax may be invalid.  
+
+---
+**Step A.** Substitute the definition of *manipulateValue* function into *processValueNow* function.
+```
+var result:Int = processValue(input:3, _closure:manipulateValue(x:Int) -> Int {return x*2+3})
+```
+
+---
+**Step B.** Remove the curly brackets and replace with the keyword *"in"*.
+```
+var result:Int = processValue(input:3, _closure:manipulateValue(x:Int) -> Int in return x*2+3)
+```
+
+---
+**Step C.** Enclose the whole *manipulateValue* function with curly brackets.
+```
+var result:Int = processValue(input:3, _closure:{manipulateValue(x:Int) -> Int in return x*2+3})
+```
+
+---
+**Step D.** Remove the function name *manipulateValue* since the function name serve purpose here.
+```
+var result:Int = processValue(input:3, _closure:{(x:Int) -> Int in return x*2+3})
+```
+
+---
+**Step E.** Remove the data type of x since the data type can be inferred from the function declaration of 
+```
+
+```
+
+
+
 
 
 
