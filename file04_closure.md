@@ -100,17 +100,19 @@ var result:Int = processValue(input:3, _closure:{(x:Int) -> Int in return x*2+3}
 var result:Int = processValue(input:3, _closure:{(x) -> Int in return x*2+3})
 ```
 
+---
 **Step F.** Remove *return* since there is only one statement, i.e. x\*2+3, in the function body. Hence, this is implicitly known as the return value.
 ```
 var result:Int = processValue(input:3, _closure:{(x) -> Int in x*2+3})
 ```
 
+---
 **Step G.** Remove *-> Int* since by declaration this function is already known to return an integer.
 ```
 var result:Int = processValue(input:3, _closure:{(x) in x*2+3})
 ```
 As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
-**{(x) in x\*2+3}**. It is read as "take in an integer value x and return an integer result produced by x\*2+3.
+**{(x) in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*
 
 
 
