@@ -95,10 +95,22 @@ var result:Int = processValue(input:3, _closure:{(x:Int) -> Int in return x*2+3}
 ```
 
 ---
-**Step E.** Remove the data type of x since the data type can be inferred from the function declaration of 
+**Step E.** Remove the data type of x since the data type can be inferred from the declaration of function *processValue*.
+```
+var result:Int = processValue(input:3, _closure:{(x) -> Int in return x*2+3})
 ```
 
+**Step F.** Remove *return* since there is only one statement, i.e. x\*2+3, in the function body. Hence, this is implicitly known as the return value.
 ```
+var result:Int = processValue(input:3, _closure:{(x) -> Int in x*2+3})
+```
+
+**Step G.** Remove *-> Int* since by declaration this function is already known to return an integer.
+```
+var result:Int = processValue(input:3, _closure:{(x) in x*2+3})
+```
+As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
+**{(x) in x\*2+3}**. It is read as "take in an integer value x and return an integer result produced by x\*2+3.
 
 
 
@@ -106,138 +118,8 @@ var result:Int = processValue(input:3, _closure:{(x:Int) -> Int in return x*2+3}
 
 
 
-To implement **do-try-catch**, there are 3 portions in the program must be in place;  
-1. *Define errors*.  
-2. *A function that is able to produce these errors*.  
-3. *Main code that uses this function must be able to receive these errors when occurs*.  
-  
-**Step 1. Define errors**  
-Using enum to define different error messages, and declare this enum as **Error** type (which is a must!).
-```
-enum mySystemErrors:Error {
-    case lowVoltage
-    case highVoltage
-    case systemNoResponse
-    case systemHalt
-}
-```
-**Step 2. Function**  
-Assuming we create a function to test a electronic system. At the end of the test, this function will read sensor input to determine if the system is healthy, otherwise, raise an error if the sensor reading does not meet the specification.  
-  
-The function raises errors by **throw**ing the errors defined in enum. The keyword **throws** must be used after the function name to indicate this function will throw out errors.
-```
-func testSystem() throws {
-    // Run codes that test the system.
-    // When test is completed, read the
-    // voltage and speed sensors to check
-    // if readings are within specifications,
-    // and update the error variable with status code.
- 
-    if voltageSensorInput < 1 { throw mySystemErrors.lowVoltage }
-    else if voltageSensorInput > 10 { throw mySystemErrors.highVoltage }
-    else if speedSensorInput > 200 { throw mySystemErrors.overSpeed }
-    else if speedSensorInput < 100 { throw mySystemErrors.underSpeed }
-}
-```
-**Step 3. Main code**  
-In the main program, function testSystem() is called. Since this function throws error, it must be preceeded by the keyword **try**.
-```
-try testSystem()
-```
-In order to catch error thrown out by testSystem(), the **try testSystem()** needs to be placed within the do-catch statement. The function will be executed within **do**, and statement in **catch** will be executed whenever there is error caught.
-```
-do{
-    try testSystem()
-    print("Test completed without errors!")
-}
-catch{
-    print("Got error!")
-}
-```
-The complete program that uses do-try-catch is shown as follows.
-```
-// Assuming these are the sensor input
-var voltageSensorInput = 5 // volt sensor reads 5V
-var speedSensorInput = 250 // speed sensor reads 300rpm
-
-// Step 1
-enum mySystemErrors:Error {
-    case lowVoltage
-    case highVoltage
-    case overSpeed
-    case underSpeed
-}
-
-// Step 2
-func testSystem() throws {
-    // Run codes that test the system.
-    // When test is completed, read the
-    // voltage and speed sensors to check
-    // if readings are within specifications,
-    // and update the error variable with status code.
- 
-    if voltageSensorInput < 1 { throw mySystemErrors.lowVoltage }
-    else if voltageSensorInput > 10 { throw mySystemErrors.highVoltage }
-    else if speedSensorInput > 200 { throw mySystemErrors.overSpeed }
-    else if speedSensorInput < 100 { throw mySystemErrors.underSpeed }
-}
-
-// Step 3
-do{
-    try testSystem()
-    print("Test completed without errors!")
-}
-catch{
-    print("Got error!")
-}
-```
-When the above is executed, the printed result will be
-```
-Got error!
-```
-because the speedSensorInput reads 250 which is greater than 200. This causes error **mySystemErrors.overSpeed** to be thrown out from the testSystem() function, and caught by the **catch** which in turn prints the "Got error!" message.
-  
-catch can be responding to specific error caught;
-```
-do{
-    try testSystem()
-    print("Test completed without errors!")
-}
-catch mySystemErrors.lowVoltage {print("Voltage Low") }
-catch mySystemErrors.highVoltage {print("Voltage High")}
-catch mySystemErrors.overSpeed {print("Over Speed")}
-catch mySystemErrors.underSpeed {print("Under Speed")}
-```
-*Over Speed* will be printed in this case.
-
-## What is try?
-**try?** will turn the result into **nil** if there is an error thrown out from the function. That is to say, even there is an error, it will be not seen by the catch. As a result, statements in **catch** can never be executed and hence serve no purpose.
-```
-do{
-    try? testSystem()
-    print("Test completed without errors!")
-}
-catch mySystemErrors.lowVoltage {print("Voltage Low") }
-catch mySystemErrors.highVoltage {print("Voltage High")}
-catch mySystemErrors.overSpeed {print("Over Speed")}
-catch mySystemErrors.underSpeed {print("Under Speed")}
-```
-*Test completed without errors!* will be printed although there is an *Over Speed* error.
 
 
-## What is try!
-**try!** will force unwrap the result. If there is an error thrown out by the function, using try! will be like force-unwrap a nil value, and causes execution interruption (i.e. program crash). If there is no error thrown out by the function, program will be executed normally. Hence, one must be very sure that there will be no error thrown by the function before using **try!**. Again, statements in **catch** can never be executed and hence serve no purpose.
-```
-do{
-    try! testSystem()
-    print("Test completed without errors!")
-}
-catch mySystemErrors.lowVoltage {print("Voltage Low") }
-catch mySystemErrors.highVoltage {print("Voltage High")}
-catch mySystemErrors.overSpeed {print("Over Speed")}
-catch mySystemErrors.underSpeed {print("Under Speed")}
-```
-Program will crash in this case. Because the overSpeed error will turn the testSystem() into a nil. Force-unwrap a nil by **try!** will cause program crash.
 
   
   
