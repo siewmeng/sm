@@ -128,9 +128,12 @@ var result:Int = processValue(input:3, _closure:{x in print("I am a closure")
                                                       print("Embedded in another function")
                                                       x*2+3})
 ```
-
-In this case, the last statement of the closure body must be started with the keyword *return* as shown
-
+In this case, the last statement of the closure body must be started with the keyword *return* as shown.
+```
+var result:Int = processValue(input:3, _closure:{x in print("I am a closure")
+                                                      print("Embedded in another function")
+                                                      return x*2+3})
+```
 
 
 
