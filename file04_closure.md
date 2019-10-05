@@ -111,8 +111,16 @@ var result:Int = processValue(input:3, _closure:{(x) -> Int in x*2+3})
 ```
 var result:Int = processValue(input:3, _closure:{(x) in x*2+3})
 ```
+
+---
+**Step H.** Remove the bracket around x since it is redundant now.
+```
+var result:Int = processValue(input:3, _closure:{x in x*2+3})
+```
 As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
-**{(x) in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*
+**{x in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*
+
+
 
 
 
