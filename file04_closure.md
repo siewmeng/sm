@@ -1,5 +1,5 @@
 ## closure
-**A closure is actually a function, a function that passed into another function.**
+**A closure is actually a function, that passed into another function.**
 
 ---
 **Step 1.** First of all, let us take a look at a simple function.
@@ -119,7 +119,17 @@ var result:Int = processValue(input:3, _closure:{x in x*2+3})
 ```
 As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
 **{x in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*
+  
+  
+## What happen if the closure has more than one statement in its body?
+Assuming the closure body has 3 statements instead of just x\*2+3.
+```
+var result:Int = processValue(input:3, _closure:{x in print("I am a closure")
+                                                      print("Embedded in another function")
+                                                      x*2+3})
+```
 
+In this case, the last statement of the closure body must be started with the keyword *return* as shown
 
 
 
