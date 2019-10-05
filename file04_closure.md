@@ -118,9 +118,9 @@ var result:Int = processValue(input:3, _closure:{(x) in x*2+3})
 var result:Int = processValue(input:3, _closure:{x in x*2+3})
 ```
 As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
-**{x in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*
+**{x in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*  
   
-  
+    
 ## What happen if the closure has more than one statement in its body?
 Assuming the closure body has 3 statements instead of just x\*2+3.
 ```
