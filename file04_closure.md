@@ -117,10 +117,19 @@ var result:Int = processValue(input:3, _closure:{(x) in x*2+3})
 ```
 var result:Int = processValue(input:3, _closure:{x in x*2+3})
 ```
+
+---
+**Step I.** If the closure is the last arguement of the function, then the statement can be further simplified by removing the urgement *_closure* and leave the whole closure right after the function.
+```
+Step 1. Remove the urgement _closure
+var result:Int = processValue(input:3, {x in x*2+3})
+
+Step 2. Remove the comma .... stop here
+
+```
 As you can see, the *manipulateValue* function is now well described in the *processValue* function by its simplified form;
 **{x in x\*2+3}**. It is read as *"take in an integer value x and return an integer produced by x\*2+3."*  
   
-    
 ## What happen if the closure has more than one statement in its body?
 Assuming the closure body has 3 statements instead of just x\*2+3.
 ```
