@@ -1,5 +1,5 @@
 ## closure
-**Closure is actually a function, but presented slight differently.**
+**A closure is actually a function, a function that passed into another function.**
 
 ---
 **Step 1.** First of all, let us take a look at a simple function.
