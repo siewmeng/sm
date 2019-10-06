@@ -143,6 +143,18 @@ var result:Int = processValue(input:3, _closure:{x in print("I am a closure")
                                                       print("Embedded in another function")
                                                       return x*2+3})
 ```
+Since the closure is the last arguement of the *processValue* function, this closure can be detached from the *processValue* function as shown.
+```
+var result:Int = processValue(input:3) _closure:{x in print("I am a closure")
+                                                      print("Embedded in another function")
+                                                      return x*2+3}
+```
+The arguement name *_closure* is removed, and the *trailing closure* is achieved.
+```
+var result:Int = processValue(input:3) {x in print("I am a closure")
+                                             print("Embedded in another function")
+                                             return x*2+3}
+```
 
 
 
